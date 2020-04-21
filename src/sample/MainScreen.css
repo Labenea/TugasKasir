@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+.leftpane{
+    -fx-background-color: linear-gradient(to top left,#3D4FFF,#3876E8,#49BAFF);
+   
+}
+.loginButton{
+    -fx-background-color: #3876E8;
+    -fx-text-fill : #fff;
+    -fx-font-size: 20px;
+    -fx-font-family: 'Noto Sans';
+    -fx-background-radius: 0;
+
+}
+.loginButton:hover{
+    -fx-background-color: #3D4FFF;
+}
+
+.brand{
+    -fx-fill: #fff;
+    -fx-font-size: 28px;
+    -fx-font-family:  'Noto Sans';
+}
