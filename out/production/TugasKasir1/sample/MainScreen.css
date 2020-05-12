@@ -10,7 +10,6 @@
     -fx-font-size: 20px;
     -fx-font-family: 'Noto Sans';
     -fx-background-radius: 0;
-
 }
 .loginButton:hover{
     -fx-background-color: #3D4FFF;
@@ -19,5 +18,14 @@
 .brand{
     -fx-fill: #fff;
     -fx-font-size: 28px;
+    -fx-font-family:  'Noto Sans';
+}
+.kasirColor{
+    -fx-background-color :#d4f3ef;
+}
+.textFont{
+    -fx-fill: white;
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
     -fx-font-family:  'Noto Sans';
 }

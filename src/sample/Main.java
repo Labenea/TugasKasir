@@ -9,6 +9,16 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
+    public int pegawai;
+
+    public int getPegawai() {
+        return pegawai;
+    }
+
+    public void setPegawai(int pegawai) {
+        this.pegawai = pegawai;
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("MainScreen.fxml"));
@@ -21,6 +31,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
+
     }
 }
 
