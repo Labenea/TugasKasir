@@ -20,24 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mariadb_java_client.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Gudang.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Karyawan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Manager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/PemasukanModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/PengeluaranModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/RiwayatModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/StockModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/TableModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/TambahModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/TypeModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/Gudang.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/Manager.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/ManagerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/TambahBarang.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/TambahBarang.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TugasKasir1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TugasKasir1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Gudang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Kasir.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Kasir.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/KasirController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/KasirController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreen.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreenController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Gudang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GudangController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Kasir.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Kasir.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/KasirController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/KasirController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/MainScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MainScreen.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/MainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MainScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MainScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/LoginScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Manager.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,22 +138,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/sample/pictures" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../KasirYuma" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="sample" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/sample" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/sample/pictures" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/sample" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -178,7 +189,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -273,6 +284,10 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="312" y="78" width="740" height="642" key="#Inspections" timestamp="1589355729249">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state x="312" y="78" width="740" height="642" key="#Inspections/0.22.1366.746@0.22.1366.746" timestamp="1589355729249" />
     <state x="278" y="59" width="800" height="675" key="#Other_File_Types" timestamp="1587047651939">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
@@ -285,27 +300,27 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="273" y="85" width="810" height="623" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.28.1366.740@0.28.1366.740" timestamp="1585467985713" />
-    <state x="491" y="102" width="374" height="579" key="#com.intellij.ide.util.MemberChooser" timestamp="1589259792528">
+    <state x="491" y="102" width="382" height="631" key="#com.intellij.ide.util.MemberChooser" timestamp="1591204601744">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="491" y="102" key="#com.intellij.ide.util.MemberChooser/0.22.1366.746@0.22.1366.746" timestamp="1589259792528" />
+    <state x="491" y="102" width="382" height="631" key="#com.intellij.ide.util.MemberChooser/0.22.1366.746@0.22.1366.746" timestamp="1591204601744" />
     <state x="491" y="107" width="374" height="579" key="#com.intellij.ide.util.MemberChooser/0.28.1366.740@0.28.1366.740" timestamp="1588074472474" />
     <state x="514" y="130" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1589201162260">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="514" y="130" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.22.1366.746@0.22.1366.746" timestamp="1589201162260" />
-    <state x="417" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589215481676">
+    <state x="417" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591019039720">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="417" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.22.1366.746@0.22.1366.746" timestamp="1589215481676" />
+    <state x="417" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.22.1366.746@0.22.1366.746" timestamp="1591019039720" />
     <state x="390" y="22" key="#mariadb-java-client-2.6.0.jar" timestamp="1589201676643">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="390" y="22" key="#mariadb-java-client-2.6.0.jar/0.22.1366.746@0.22.1366.746" timestamp="1589201676643" />
-    <state x="432" y="286" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1589213840854">
+    <state x="432" y="286" width="502" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1589359340408">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="432" y="286" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.22.1366.746@0.22.1366.746" timestamp="1589213840854" />
+    <state x="432" y="286" width="502" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.22.1366.746@0.22.1366.746" timestamp="1589359340408" />
     <state x="530" y="273" key="DBNavigator.ConnectionAuthenticationDialog" timestamp="1588587724367">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -318,34 +333,34 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="216" y="53" width="932" height="689" key="DBNavigator.ProjectSettingsDialog/0.22.1366.746@0.22.1366.746" timestamp="1589205044547" />
-    <state x="426" y="142" width="618" height="489" key="FileChooserDialogImpl" timestamp="1589209939573">
+    <state x="379" y="160" width="618" height="489" key="FileChooserDialogImpl" timestamp="1590929689054">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="426" y="142" width="618" height="489" key="FileChooserDialogImpl/0.22.1366.746@0.22.1366.746" timestamp="1589209939573" />
-    <state width="1320" height="182" key="GridCell.Tab.0.bottom" timestamp="1589262609810">
+    <state x="379" y="160" width="618" height="489" key="FileChooserDialogImpl/0.22.1366.746@0.22.1366.746" timestamp="1590929689053" />
+    <state width="1320" height="169" key="GridCell.Tab.0.bottom" timestamp="1591208749006">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state width="1320" height="182" key="GridCell.Tab.0.bottom/0.22.1366.746@0.22.1366.746" timestamp="1589262609810" />
+    <state width="1320" height="169" key="GridCell.Tab.0.bottom/0.22.1366.746@0.22.1366.746" timestamp="1591208749006" />
     <state width="1316" height="173" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1587054242688" />
-    <state width="1320" height="182" key="GridCell.Tab.0.center" timestamp="1589262609809">
+    <state width="1320" height="169" key="GridCell.Tab.0.center" timestamp="1591208749005">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state width="1320" height="182" key="GridCell.Tab.0.center/0.22.1366.746@0.22.1366.746" timestamp="1589262609809" />
+    <state width="1320" height="169" key="GridCell.Tab.0.center/0.22.1366.746@0.22.1366.746" timestamp="1591208749005" />
     <state width="1316" height="173" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1587054242688" />
-    <state width="1320" height="182" key="GridCell.Tab.0.left" timestamp="1589262609808">
+    <state width="1320" height="169" key="GridCell.Tab.0.left" timestamp="1591208749005">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state width="1320" height="182" key="GridCell.Tab.0.left/0.22.1366.746@0.22.1366.746" timestamp="1589262609808" />
+    <state width="1320" height="169" key="GridCell.Tab.0.left/0.22.1366.746@0.22.1366.746" timestamp="1591208749005" />
     <state width="1316" height="173" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1587054242687" />
-    <state width="1320" height="182" key="GridCell.Tab.0.right" timestamp="1589262609809">
+    <state width="1320" height="169" key="GridCell.Tab.0.right" timestamp="1591208749005">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state width="1320" height="182" key="GridCell.Tab.0.right/0.22.1366.746@0.22.1366.746" timestamp="1589262609809" />
+    <state width="1320" height="169" key="GridCell.Tab.0.right/0.22.1366.746@0.22.1366.746" timestamp="1591208749005" />
     <state width="1316" height="173" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1587054242688" />
-    <state x="164" y="22" width="1032" height="746" key="SettingsEditor" timestamp="1589255945934">
+    <state x="164" y="22" width="1032" height="746" key="SettingsEditor" timestamp="1590929690166">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="164" y="22" width="1032" height="746" key="SettingsEditor/0.22.1366.746@0.22.1366.746" timestamp="1589255945934" />
+    <state x="164" y="22" width="1032" height="746" key="SettingsEditor/0.22.1366.746@0.22.1366.746" timestamp="1590929690166" />
     <state x="164" y="33" key="SettingsEditor/0.28.1366.740@0.28.1366.740" timestamp="1585468053274" />
     <state x="338" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1588072732027">
       <screen x="0" y="28" width="1366" height="740" />
@@ -360,11 +375,19 @@
     </state>
     <state x="119" y="95" key="new project wizard/0.22.1366.746@0.22.1366.746" timestamp="1589204831505" />
     <state x="302" y="100" width="752" height="594" key="new project wizard/0.28.1366.740@0.28.1366.740" timestamp="1585663522168" />
-    <state x="428" y="22" width="500" height="738" key="refactoring.ChangeSignatureDialog" timestamp="1589216109300">
+    <state x="428" y="22" width="415" height="487" key="refactoring.ChangeSignatureDialog" timestamp="1591204589910">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
-    <state x="428" y="22" key="refactoring.ChangeSignatureDialog/0.22.1366.746@0.22.1366.746" timestamp="1589216109300" />
+    <state x="428" y="22" width="415" height="487" key="refactoring.ChangeSignatureDialog/0.22.1366.746@0.22.1366.746" timestamp="1591204589910" />
     <state x="428" y="28" width="500" height="738" key="refactoring.ChangeSignatureDialog/0.28.1366.740@0.28.1366.740" timestamp="1588075795329" />
+    <state x="347" y="174" key="run.anything.popup" timestamp="1589294084076">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state x="347" y="174" key="run.anything.popup/0.22.1366.746@0.22.1366.746" timestamp="1589294084076" />
+    <state x="687" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1591182947231">
+      <screen x="0" y="22" width="1366" height="746" />
+    </state>
+    <state x="687" y="89" width="672" height="678" key="search.everywhere.popup/0.22.1366.746@0.22.1366.746" timestamp="1591182947231" />
     <state x="409" y="307" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1589202413727">
       <screen x="0" y="22" width="1366" height="746" />
     </state>

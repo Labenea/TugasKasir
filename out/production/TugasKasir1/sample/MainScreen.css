@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
 
 .leftpane{
     -fx-background-color: linear-gradient(to top left,#3D4FFF,#3876E8,#49BAFF);
@@ -15,17 +16,131 @@
     -fx-background-color: #3D4FFF;
 }
 
+
+.tambahButton{
+    -fx-background-color:#0026FF;
+    -fx-text-fill : #fff;
+    -fx-font-size: 20px;
+    -fx-font-family: 'Noto Sans';
+    -fx-background-radius: 0;
+}
+.tambahButton:hover{
+    -fx-background-color: #001DBF;
+}
+
+
+
 .brand{
     -fx-fill: #fff;
     -fx-font-size: 28px;
     -fx-font-family:  'Noto Sans';
 }
 .kasirColor{
-    -fx-background-color :#d4f3ef;
+    -fx-background-color :#0084FF;
 }
+.kasirBottom{
+    -fx-background-color:#0084FF;
+}
+.buttonColor{
+    -fx-background-color:#0063BF;
+}
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-background-color: #0077E6;
+}
+
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: #fff;
+}
+.GudangColorText{
+    -fx-text-fill: #fff;
+    -fx-font-family:  'Noto Sans';
+    -fx-font-size: 40px;
+    -fx-font-weight: bold;
+}
+
 .textFont{
-    -fx-fill: white;
     -fx-font-size: 17px;
     -fx-font-weight: bold;
     -fx-font-family:  'Noto Sans';
+    -fx-text-fill   : #fff;
+}
+.jabatanFont{
+     -fx-font-size: 14px;
+    -fx-font-family:  'Noto Sans';
+    -fx-text-fill   : #fff;
+}
+.priceFont{
+    -fx-font-family:  'Noto Sans';
+    -fx-font-weight : bold;
+    -fx-font-size   : 54px;
+    -fx-text-fill   : #fff;
+}
+.totalItem{
+  -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-font-family:  'Noto Sans';
+        -fx-text-fill   : #fff;
+}
+.namaPegawai{
+    -fx-font-size: 20px;
+    -fx-font-family:  'Noto Sans';
+    -fx-text-fill   : #fff;
+}
+.transaksi{
+    -fx-font-size: 20px;
+    -fx-font-family:  'Noto Sans';
+    -fx-text-fill   : #fff;
+    -fx-font-weight: bold;
+}
+.GudangButtonColor{
+    -fx-background-color :#0084FF;
+     -fx-text-fill : #fff;
+         -fx-font-size: 30px;
+         -fx-font-family: 'Noto Sans';
+}
+
+.GudangButtonColor:hover{
+-fx-background-color :#0C43E8
+}
+.GudangButtonColorSelected{
+    -fx-background-radius:0px;
+    -fx-background-color :#FFF;
+     -fx-text-fill : #0084FF;
+         -fx-font-size: 30px;
+         -fx-font-family: 'Noto Sans';
+}
+.GudangButtonLogoSelected{
+ -fx-fill:#0084FF;
+}
+.GudangButtonLogo{
+-fx-fill:#FFF;
+}
+
+.SearchButton{
+    -fx-background-radius : 0px;
+    -fx-background-color:#0084FF;
+    -fx-font-weight:bold;
+    -fx-text-fill : #fff;
+    -fx-font-size: 14px;
+     -fx-font-family: 'Noto Sans';
+}
+.whiteButton{
+        -fx-background-radius : 0px;
+        -fx-border-color : #fff;
+            -fx-text-fill : #fff;
+        -fx-background-color:#0084FF;
+        -fx-font-weight:bold;
+        -fx-font-family: 'Noto Sans';
+}
+.whiteButton:hover{
+-fx-background-color :#0C43E8;
+}
+.UserNameStyle{
+       -fx-text-fill : #fff;
+        -fx-background-color:#0084FF;
+        -fx-font-family: 'Noto Sans';
+        -fx-font-size: 20px;
 }
