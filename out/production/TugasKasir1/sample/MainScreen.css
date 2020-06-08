@@ -75,7 +75,13 @@
 .priceFont{
     -fx-font-family:  'Noto Sans';
     -fx-font-weight : bold;
-    -fx-font-size   : 54px;
+    -fx-font-size   : 64px;
+    -fx-text-fill   : #fff;
+}
+.KembalianFont{
+    -fx-font-family:  'Noto Sans';
+    -fx-font-weight : bold;
+    -fx-font-size   : 45px;
     -fx-text-fill   : #fff;
 }
 .totalItem{
@@ -130,7 +136,7 @@
 .whiteButton{
         -fx-background-radius : 0px;
         -fx-border-color : #fff;
-            -fx-text-fill : #fff;
+        -fx-text-fill : #fff;
         -fx-background-color:#0084FF;
         -fx-font-weight:bold;
         -fx-font-family: 'Noto Sans';
@@ -143,4 +149,14 @@
         -fx-background-color:#0084FF;
         -fx-font-family: 'Noto Sans';
         -fx-font-size: 20px;
+}
+.TagihanButton{
+    -fx-background-color : #15A483;
+    -fx-background-radius:0px;
+    -fx-text-fill: #fff;
+    -fx-border-color: #fff;
+    -fx-font-family: 'Noto Sans';
+}
+.TagihanButton:hover{
+    -fx-background-color : #0E6450;
 }

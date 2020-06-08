@@ -17,6 +17,8 @@ import java.sql.*;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static Connection.Koneksi.Koneksi;
+
 public class TambahBarang implements Initializable {
     public TableColumn<TambahModel, Integer> colNo;
     public TableColumn<TambahModel, String> colKode;
@@ -34,14 +36,6 @@ public class TambahBarang implements Initializable {
 
     ObservableList<TambahModel> data = FXCollections.observableArrayList();
 
-    public static Connection Koneksi() {
-        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir", "root", "");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     public void setIdTransaksi(int idTransaksi) {
         IdTransaksi = idTransaksi;

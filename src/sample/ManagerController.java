@@ -1,26 +1,35 @@
 package sample;
 
+import Hashing.Md5Hasing;
 import Model.*;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static Connection.Koneksi.Koneksi;
 
 public class ManagerController implements Initializable {
 
@@ -34,9 +43,9 @@ public class ManagerController implements Initializable {
     public TableColumn<PemasukanModel, String> TanggalPemasukan;
     public TableColumn<PemasukanModel, Integer> PemasukanColumn;
     public TableView<PengeluaranModel> PengeluaranTabel;
-    public TableColumn<PengeluaranModel, Integer> NoPengeluaran;
     public TableColumn<PengeluaranModel, String> TanggalPengeluaran;
-    public TableColumn<PengeluaranModel, Integer> PengeluaranColumn;
+    public TableColumn<PengeluaranModel,String> JenisPengeluaran;
+    public TableColumn<PengeluaranModel, String> PengeluaranColumn;
     public Button ManagerButton;
     public MaterialDesignIconView ManagerBLogo;
     public Button MStockButton;
@@ -44,12 +53,12 @@ public class ManagerController implements Initializable {
     public Button PegawaiButton;
     public MaterialDesignIconView PegawaiBLogo;
     public GridPane PegawaiPane;
-    public TableView PegawaiTable;
-    public TableColumn PNoColumn;
-    public TableColumn PIdPegawaiColumn;
-    public TableColumn PNamaColumn;
-    public TableColumn PJabatanColumn;
-    public TableColumn PUnameColumn;
+    public TableView<PegawaiModel> PegawaiTable;
+    public TableColumn<PegawaiModel,Integer> PNoColumn;
+    public TableColumn<PegawaiModel, Integer> PIdPegawaiColumn;
+    public TableColumn<PegawaiModel, String> PNamaColumn;
+    public TableColumn<PegawaiModel, String> PJabatanColumn;
+    public TableColumn<PegawaiModel, String> PUnameColumn;
     public TextField PCariInput;
     public Button PCariButton;
     public Label NamaPegawaiLabel;
@@ -58,7 +67,7 @@ public class ManagerController implements Initializable {
     public TextField NamaPegawaiInput;
     public TextField UsernameInput;
     public PasswordField PasswordInput;
-    public ComboBox RJabatanCombo;
+    public ComboBox<JabatanModel> RJabatanCombo;
     public Button RegistrasiButton;
     public GridPane MRiwayatGudangPane;
     public TableView<RiwayatModel> MRiwayatTable;
@@ -104,14 +113,20 @@ public class ManagerController implements Initializable {
     public Label LabaLabel;
     public GridPane ManagerPane;
     public int idStockSelected;
+    public int idPegawaiSelected;
     public int JumlahStockSelected;
+    public int pengeluaran;
+    public Button MLogoutButton;
+
     //endregion
 
     ObservableList<PemasukanModel> PemasukanData = FXCollections.observableArrayList();
     ObservableList<PengeluaranModel> PengeluaranData = FXCollections.observableArrayList();
     ObservableList<RiwayatModel> RiwayatData = FXCollections.observableArrayList();
     ObservableList<TypeModel> TypeModelCombo = FXCollections.observableArrayList();
+    ObservableList<JabatanModel> JabatanData = FXCollections.observableArrayList();
     ObservableList<StockModel> StockData = FXCollections.observableArrayList();
+    ObservableList<PegawaiModel> PegawaiData = FXCollections.observableArrayList();
     private int pegawai;
 
     @Override
@@ -121,7 +136,7 @@ public class ManagerController implements Initializable {
         TanggalPemasukan.setCellValueFactory(new PropertyValueFactory<>("tanggal"));
         PemasukanColumn.setCellValueFactory(new PropertyValueFactory<>("pemasukan"));
         //PengeluaranTabel
-        NoPengeluaran.setCellValueFactory(new PropertyValueFactory<>("no"));
+        JenisPengeluaran.setCellValueFactory(new PropertyValueFactory<>("jenis"));
         TanggalPengeluaran.setCellValueFactory(new PropertyValueFactory<>("tanggal"));
         PengeluaranColumn.setCellValueFactory(new PropertyValueFactory<>("pengeluaran"));
         //StockTable
@@ -140,25 +155,23 @@ public class ManagerController implements Initializable {
         MRTanggalColumn.setCellValueFactory(new PropertyValueFactory<>("tanggal"));
         MRBanyakColumn.setCellValueFactory(new PropertyValueFactory<>("perubahan"));
         MRStatusAction.setCellValueFactory(new PropertyValueFactory<>("statusAction"));
-
+        //PegawaiTabel
+        PNoColumn.setCellValueFactory(new PropertyValueFactory<>("no"));
+        PIdPegawaiColumn.setCellValueFactory(new PropertyValueFactory<>("idPegawai"));
+        PNamaColumn.setCellValueFactory(new PropertyValueFactory<>("namaPegawai"));
+        PJabatanColumn.setCellValueFactory(new PropertyValueFactory<>("jabatanPegawai"));
+        PUnameColumn.setCellValueFactory(new PropertyValueFactory<>("usernamePegawai"));
+        ManagerPane.toFront();
         updatePengeluaranTable();
         updatePemasukanTable();
         updateManagerPane();
     }
 
-    public static Connection Koneksi() {
-        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir", "root", "");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     private void updatePemasukanTable() {
-        Koneksi();
         PemasukanTabel.getItems().clear();
         PemasukanTabel.refresh();
+        totalPemasukan = 0;
         int i = 0;
         try {
             Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
@@ -176,7 +189,33 @@ public class ManagerController implements Initializable {
     }
 
     private void updatePengeluaranTable() {
-
+        Koneksi();
+        PengeluaranTabel.getItems().clear();
+        PengeluaranTabel.refresh();
+        try {
+            Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
+            String sql = "select sum(b.harga_beli*rg.penambahan) as jumlah, rg.tgl_masuk_barang " +
+                    "from barang as b " +
+                    "inner join gudang as g on b.id_barang=g.id_barang " +
+                    "inner join riwayat_gudang as rg on rg.id_gudang=g.id_gudang " +
+                    "group by rg.tgl_masuk_barang;";
+            ResultSet res = stat.executeQuery(sql);
+            while (res.next()) {
+                PengeluaranData.add(new PengeluaranModel(res.getString("tgl_masuk_barang"),"Pengadaan", nf.format(res.getInt("jumlah"))));
+            }
+            stat = Objects.requireNonNull(Koneksi()).createStatement();
+            sql = "select sum(biaya) as jumlah, tanggal_tagihan from tagihan group by tanggal_tagihan";
+            res = stat.executeQuery(sql);
+            while (res.next()) {
+                PengeluaranData.add(new PengeluaranModel(res.getString("tanggal_tagihan"),"Tagihan", nf.format(res.getInt("jumlah"))));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        PengeluaranTabel.setItems(PengeluaranData);
+        TanggalPengeluaran.setSortType(TableColumn.SortType.DESCENDING);
+        PengeluaranTabel.getSortOrder().add(TanggalPengeluaran);
+        PengeluaranTabel.sort();
     }
 
     private void updateStockTabel(){
@@ -224,6 +263,27 @@ public class ManagerController implements Initializable {
             throwables.printStackTrace();
         }
         MRiwayatTable.setItems(RiwayatData);
+    }
+
+    private void updatePegawaiTabel(){
+        Koneksi();
+        PegawaiTable.getItems().clear();
+        PegawaiTable.refresh();
+        int i=0;
+        try {
+            Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
+            String sql =  "select * from pegawai as p inner join jabatan as j on p.id_jabatan=j.id_jabatan where status_pegawai = 1;";
+            ResultSet res = stat.executeQuery(sql);
+            while (res.next()){
+                i++;
+                PegawaiData.add(new PegawaiModel(i,res.getInt("id_pegawai"),res.getString("nama_pegawai"),
+                        res.getString("nama_jabatan"),res.getString("username_pegawai")));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        PegawaiTable.setItems(PegawaiData);
+
     }
 
     public void setPegawai(int pegawai) {
@@ -301,6 +361,8 @@ public class ManagerController implements Initializable {
     }
 
     private void updateSatuanCombo() {
+        SatuanCombo.getSelectionModel().clearSelection();
+        SatuanCombo.getItems().clear();
         try {
             Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
             String sql = "select * from type";
@@ -314,7 +376,26 @@ public class ManagerController implements Initializable {
         SatuanCombo.setItems(TypeModelCombo);
     }
 
+    private void updateJabatanCombo(){
+        RJabatanCombo.getSelectionModel().clearSelection();
+        RJabatanCombo.getItems().clear();
+        try {
+            Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
+            String sql = "select * from jabatan";
+            ResultSet res = stat.executeQuery(sql);
+            while (res.next()) {
+                JabatanData.add(new JabatanModel(res.getInt("id_jabatan"),res.getString("nama_jabatan")));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        RJabatanCombo.setItems(JabatanData);
+
+    }
+
     public void PegawaiButtonPressed(ActionEvent actionEvent) {
+        updateJabatanCombo();
+        updatePegawaiTabel();
         PegawaiPane.toFront();
         //StockButton
         MStockButton.getStyleClass().clear();
@@ -337,21 +418,111 @@ public class ManagerController implements Initializable {
     }
 
     public void PegawaiTableSelected(MouseEvent mouseEvent) {
+        PegawaiModel SelectedPegawai = PegawaiTable.getSelectionModel().getSelectedItems().get(0);
+        idPegawaiSelected = SelectedPegawai.getIdPegawai();
+        NamaPegawaiLabel.setText(SelectedPegawai.getNamaPegawai());
+        UsernamePegawaiLabel.setText(SelectedPegawai.getUsernamePegawai());
     }
 
     public void PCariOnKeyReleased(KeyEvent keyEvent) {
+        Koneksi();
+        PegawaiTable.getItems().clear();
+        PegawaiTable.refresh();
+        int i=0;
+        try {
+            Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
+            String sql =  "select * from pegawai as p inner join jabatan as j on p.id_jabatan=j.id_jabatan " +
+                    "where status_pegawai = 1 and p.nama_pegawai like '%" +
+                     PCariInput.getText() +"%';";
+            ResultSet res = stat.executeQuery(sql);
+            while (res.next()){
+                i++;
+                PegawaiData.add(new PegawaiModel(i,res.getInt("id_pegawai"),res.getString("nama_pegawai"),
+                        res.getString("nama_jabatan"),res.getString("username_pegawai")));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        PegawaiTable.setItems(PegawaiData);
+
     }
 
     public void PCariButtonPressed(ActionEvent actionEvent) {
     }
 
     public void HapusAkunButtonPressed(ActionEvent actionEvent) {
+        try {
+            Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
+            String sql = "update pegawai set status_pegawai = 0 where id_pegawai = "
+                    + idPegawaiSelected + ";";
+            PreparedStatement pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
+            pst.execute();
+            Alert Sukses = new Alert(Alert.AlertType.INFORMATION);
+            Sukses.setTitle("Berhasil!!!");
+            Sukses.setHeaderText(null);
+            Sukses.setContentText("Akun Pegawai Berhasil Dihapus");
+
+            Sukses.showAndWait();
+            updatePegawaiTabel();
+
+        } catch (SQLException throwables) {
+            Alert Sukses = new Alert(Alert.AlertType.INFORMATION);
+            Sukses.setTitle("Gagal");
+            Sukses.setHeaderText(null);
+            Sukses.setContentText("Akun Pegawai Gagal Dihapus");
+
+            Sukses.showAndWait();
+        }
     }
 
     public void RJabatanSelected(ActionEvent actionEvent) {
     }
 
     public void RegistrasiButtonPressed(ActionEvent actionEvent) {
+        JabatanModel jabatanSelected = RJabatanCombo.getSelectionModel().getSelectedItem();
+        Md5Hasing md5 = new Md5Hasing();
+        String pass = md5.generatedPassword(PasswordInput.getText());
+        if(NamaPegawaiInput.getText().equals("") || PasswordInput.getText().equals("") || UsernameInput.getText().equals("") || jabatanSelected == null){
+            Alert gagal = new Alert(Alert.AlertType.INFORMATION);
+            gagal.setTitle("Gagal!!!");
+            gagal.setHeaderText(null);
+            gagal.setContentText("Semua Field Harus Diisi" );
+
+            gagal.showAndWait();
+        }else {
+            try {
+                String sql = "insert into pegawai value(null, '"
+                        + NamaPegawaiInput.getText() + "', '"
+                        + pass + "', "
+                        + jabatanSelected.getIdJabatan() + ", '"
+                        + UsernameInput.getText() + "', 1)";
+                PreparedStatement pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
+                pst.execute();
+
+                updatePegawaiTabel();
+
+                NamaPegawaiInput.requestFocus();
+                NamaPegawaiInput.setText("");
+                PasswordInput.setText("");
+                UsernameInput.setText("");
+
+                Alert Sukses = new Alert(Alert.AlertType.INFORMATION);
+                Sukses.setTitle("Berhasil!!!");
+                Sukses.setHeaderText(null);
+                Sukses.setContentText("Akun Pegawai "+ NamaPegawaiInput.getText() + "Berhasil Dibuat" );
+
+                Sukses.showAndWait();
+
+            } catch (SQLException throwables) {
+                Alert gagal = new Alert(Alert.AlertType.INFORMATION);
+                gagal.setTitle("Gagal!!!");
+                gagal.setHeaderText(null);
+                gagal.setContentText("Akun Gagal Dibuat" );
+
+                gagal.showAndWait();
+            }
+        }
+
     }
 
     public void TableStockSelected(MouseEvent mouseEvent) {
@@ -436,7 +607,6 @@ public class ManagerController implements Initializable {
                     + idStockSelected + ";";
             ResultSet res = stat.executeQuery(sql);
             res.next();
-            int StockChanged = Integer.parseInt(MUpdateStockInput.getText()) - res.getInt("stock") ;
             int IdGudang = res.getInt("id_gudang");
             JumlahStockSelected += Integer.parseInt(MUpdateStockInput.getText());
             sql = "update gudang set stock = "
@@ -448,11 +618,11 @@ public class ManagerController implements Initializable {
             sql = "insert into riwayat_gudang value(null,"
                     + pegawai + ",now(),"
                     + IdGudang + ","
-                    + StockChanged+ ",'Tambah');";
+                    + MUpdateStockInput.getText()+ ",'Tambah');";
             pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
             pst.execute();
             updateStockTabel();
-            MUpdateStockInput.setText(String.valueOf(JumlahStockSelected));
+            MStockBarangLabel.setText(String.valueOf(JumlahStockSelected));
             Alert Sukses = new Alert(Alert.AlertType.INFORMATION);
             Sukses.setTitle("Berhasil!!!");
             Sukses.setHeaderText(null);
@@ -588,22 +758,52 @@ public class ManagerController implements Initializable {
     public void updateManagerPane() {
         try {
             Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
-            String sql = "SELECT (SELECT COUNT(id_transaksi)) AS \"Total\",(SELECT COUNT(id_transaksi) WHERE tgl_transaksi = NOW() )AS \"TotalHari\" FROM transaksi";
+            String sql = "SELECT (SELECT COUNT(id_transaksi) FROM transaksi WHERE status_transaksi = 1 ) AS Total ,(SELECT COUNT(id_transaksi) FROM transaksi WHERE tgl_transaksi = CURDATE() AND status_transaksi = 1 )AS TotalHari\n";
             ResultSet res = stat.executeQuery(sql);
             res.next();
             JumlahTrasaksiLabel.setText(String.valueOf(res.getInt("Total")));
             TransaksiHarIniLabel.setText(String.valueOf(res.getInt("TotalHari")));
+            sql = "select sum(b.harga_beli*rg.penambahan) as jumlah, rg.tgl_masuk_barang from barang as b inner join gudang as g on b.id_barang=g.id_barang inner join riwayat_gudang as rg on rg.id_gudang=g.id_gudang";
+            res = stat.executeQuery(sql);
+            res.next();
+            TotalPengeluaranLabel.setText(nf.format(res.getInt("jumlah")));
+            pengeluaran = res.getInt("jumlah");
             sql = "SELECT SUM(d.harga * d.jumlah) AS \"PemasukanHari\"\n" +
                     "FROM detail AS d \n" +
                     "INNER JOIN transaksi AS t ON d.id_transaksi = t.id_transaksi\n" +
-                    "WHERE tgl_transaksi = NOW()";
+                    "WHERE tgl_transaksi = CURDATE() AND status_transaksi = 1";
             res = stat.executeQuery(sql);
             res.next();
-            PemasukanHariIniLabel.setText(String.valueOf(res.getInt("PemasukanHari")));
+            PemasukanHariIniLabel.setText(nf.format(res.getInt("PemasukanHari")));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
+        int pendapatan = totalPemasukan;
+        if(pendapatan >= pengeluaran){
+            LabaLabel.setText(nf.format(pendapatan+pengeluaran));
+        }
+        else{
+            LabaLabel.setText(nf.format(pendapatan-pengeluaran));
+        }
         TotalPemasukanLabel.setText(String.valueOf(nf.format(totalPemasukan)));
+
+    }
+
+    public void MLogoutButtonPressed(ActionEvent actionEvent) {
+        try {
+            Stage thisState = (Stage) MLogoutButton.getScene().getWindow();
+            thisState.close();
+            Stage primaryStage = new Stage();
+            FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+            Parent root = fxmlLoader.load();
+
+            primaryStage.setTitle("Login");
+            primaryStage.setScene(new Scene(root, 600, 400));
+            primaryStage.initStyle(StageStyle.UNDECORATED);
+            primaryStage.setResizable(false);
+            primaryStage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

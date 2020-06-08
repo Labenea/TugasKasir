@@ -1,22 +1,22 @@
 package Model;
 
 public class PengeluaranModel {
-    private int no;
     private String tanggal;
-    private int pengeluaran;
+    private String jenis;
+    private String pengeluaran;
 
-    public PengeluaranModel(int no, String tanggal, int pengeluaran) {
-        this.no = no;
+    public PengeluaranModel(String tanggal, String jenis, String pengeluaran) {
         this.tanggal = tanggal;
+        this.jenis = jenis;
         this.pengeluaran = pengeluaran;
     }
 
-    public int getNo() {
-        return no;
+    public String getJenis() {
+        return jenis;
     }
 
-    public void setNo(int no) {
-        this.no = no;
+    public void setJenis(String jenis) {
+        this.jenis = jenis;
     }
 
     public String getTanggal() {
@@ -27,11 +27,11 @@ public class PengeluaranModel {
         this.tanggal = tanggal;
     }
 
-    public int getPengeluaran() {
+    public String getPengeluaran() {
         return pengeluaran;
     }
 
-    public void setPengeluaran(int pengeluaran) {
+    public void setPengeluaran(String pengeluaran) {
         this.pengeluaran = pengeluaran;
     }
 }

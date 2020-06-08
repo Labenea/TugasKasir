@@ -1,17 +1,20 @@
 package sample;
 
 import Model.TableModel;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +23,8 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static Connection.Koneksi.Koneksi;
 
 public class KasirController implements Initializable {
     public int Pegawai;
@@ -32,7 +37,13 @@ public class KasirController implements Initializable {
     public TextField cash;
     public Label kembalian;
     public int TableSelectedId;
-    public Label Jabatan;
+    public Label namaBarang;
+    public Button KasirButton;
+    public MaterialDesignIconView KasirBLogo;
+    public Button RiwayatKasirButton;
+    public MaterialDesignIconView RiwayatKasirBLogo;
+    public Button CheckOutButton;
+    public Button KLogoutButton;
 
     public int getIdTransaki() {
         return idTransaki;
@@ -65,14 +76,6 @@ public class KasirController implements Initializable {
         this.hargaTotal = hargaTotal;
     }
 
-    public static Connection Koneksi() {
-        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir", "root", "");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     public void setPegawai(int pegawai) {
         Pegawai = pegawai;
@@ -92,7 +95,6 @@ public class KasirController implements Initializable {
         NumberFormat nf = NumberFormat.getInstance(new Locale("en", "US"));
         String val = nf.format(hargaTotal);
         hargaLabel.setText("Rp."+val);
-
     }
 
     public void setLabel() {
@@ -107,14 +109,10 @@ public class KasirController implements Initializable {
             res.next();
             idTransaki = res.getInt("id_transaksi");
             noTransaksiLabel.setText(Integer.toString(idTransaki));
+            updateTable();
 
         } catch (SQLException throwables) {
-            Alert gagal = new Alert(Alert.AlertType.INFORMATION);
-            gagal.setTitle("Login Gagal");
-            gagal.setHeaderText("Info");
-            gagal.setContentText(String.valueOf(throwables));
-
-            gagal.showAndWait();
+            throwables.printStackTrace();
         }
     }
 
@@ -176,6 +174,9 @@ public class KasirController implements Initializable {
             stage.setScene(scene);
             stage.showAndWait();
             updateTable();
+            int tab = table.getItems().size();
+            TableModel vi = table.getItems().get(tab-1);
+            namaBarang.setText(vi.getNamaBarang());
             cash.requestFocus();
 
         } catch (IOException e) {
@@ -193,6 +194,11 @@ public class KasirController implements Initializable {
                     + idTransaki + ";";
             PreparedStatement pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
             pst.execute();
+            sql = "insert into transaksi value(null,"
+                    + Pegawai + ",now());";
+            pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
+            pst.execute();
+
             updateTable();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -210,5 +216,74 @@ public class KasirController implements Initializable {
     public void selectTable(MouseEvent mouseEvent) {
         TableModel selecteditem = table.getSelectionModel().getSelectedItems().get(0);
         TableSelectedId = Integer.parseInt(selecteditem.getKode());
+        namaBarang.setText(selecteditem.getNamaBarang());
+    }
+
+    public void KasirButtonPressed(ActionEvent actionEvent) {
+    }
+
+    public void RiwayatButtonPressed(ActionEvent actionEvent) {
+    }
+
+    public void CheckOutAction(ActionEvent actionEvent) {
+        if(Integer.parseInt(cash.getText()) < hargaTotal){
+            Alert gagal = new Alert(Alert.AlertType.INFORMATION);
+            gagal.setTitle("Transaksi Gagal");
+            gagal.setHeaderText(null);
+            gagal.setContentText("Uang yang Dibayarkan Kurang");
+            gagal.showAndWait();
+            updateTable();
+        }else {
+            try{
+                String sql = "UPDATE gudang as g, detail as d " +
+                        "SET g.stock = g.stock - d.jumlah " +
+                        "WHERE g.id_barang = d.id_barang " +
+                        "AND d.id_transaksi =" + idTransaki+";";
+                PreparedStatement pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
+                pst.execute();
+                try
+                {
+                    sql = "UPDATE transaksi SET status_transaksi = 1 WHERE id_transaksi =" + idTransaki + ";";
+                    pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
+                    pst.execute();
+                }catch (SQLException throwables){
+                    throwables.printStackTrace();
+                }
+                sql = "insert into transaksi value(null,"
+                        + Pegawai + ",now(),0);";
+                pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
+                pst.execute();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            Alert sukses = new Alert(Alert.AlertType.INFORMATION);
+            sukses.setTitle("Transaksi Berhasil");
+            sukses.setHeaderText(null);
+            sukses.setContentText("Transaksi Berhasil Dilakukan");
+            idTransaki += 1;
+            cash.setText("");
+            sukses.showAndWait();
+            updateTable();
+        }
+
+    }
+
+    public void KLogoutButtonPressed(ActionEvent actionEvent) {
+        try {
+            Stage thisState = (Stage) KLogoutButton.getScene().getWindow();
+            thisState.close();
+            Stage primaryStage = new Stage();
+            FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+            Parent root = fxmlLoader.load();
+
+            primaryStage.setTitle("Login");
+            primaryStage.setScene(new Scene(root, 600, 400));
+            primaryStage.initStyle(StageStyle.UNDECORATED);
+            primaryStage.setResizable(false);
+            primaryStage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 }

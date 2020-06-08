@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="192.0" prefWidth="227.0" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Tagihan">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="192.0" prefWidth="442.0">
+         <children>
+            <Label text="Label" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

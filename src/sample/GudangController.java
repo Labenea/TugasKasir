@@ -7,19 +7,27 @@ import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static Connection.Koneksi.Koneksi;
 
 public class GudangController implements Initializable {
 
@@ -28,6 +36,7 @@ public class GudangController implements Initializable {
     public MaterialDesignIconView logoButtonS;
     public NumberFormat nf = NumberFormat.getInstance(new Locale("id", "ID"));
     public TableColumn<RiwayatModel,String> RStatusAction;
+    public Button GLogoutButton;
 
     public int getIdPegawai() {
         return IdPegawai;
@@ -165,15 +174,6 @@ public class GudangController implements Initializable {
 
     }
 
-    public static Connection Koneksi() {
-        try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/kasir", "root", "");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     public void UpdateStockTable(){
         Koneksi();
         StockTable.getItems().clear();
@@ -305,6 +305,24 @@ public class GudangController implements Initializable {
             Alert gagal = new Alert(Alert.AlertType.INFORMATION);
             gagal.setContentText(String.valueOf(throwables));
             gagal.showAndWait();
+        }
+    }
+
+    public void GLogoutButtonPressed(ActionEvent actionEvent) {
+        try {
+            Stage thisState = (Stage) GLogoutButton.getScene().getWindow();
+            thisState.close();
+            Stage primaryStage = new Stage();
+            FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("MainScreen.fxml"));
+            Parent root = fxmlLoader.load();
+
+            primaryStage.setTitle("Login");
+            primaryStage.setScene(new Scene(root, 600, 400));
+            primaryStage.initStyle(StageStyle.UNDECORATED);
+            primaryStage.setResizable(false);
+            primaryStage.show();
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 }
