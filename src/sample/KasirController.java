@@ -1,5 +1,6 @@
 package sample;
 
+import Model.RiwayatKasirModel;
 import Model.TableModel;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -27,6 +29,7 @@ import java.util.ResourceBundle;
 import static Connection.Koneksi.Koneksi;
 
 public class KasirController implements Initializable {
+    //region Variable
     public int Pegawai;
     public Label namaPegawai;
     public Label hargaLabel;
@@ -44,6 +47,15 @@ public class KasirController implements Initializable {
     public MaterialDesignIconView RiwayatKasirBLogo;
     public Button CheckOutButton;
     public Button KLogoutButton;
+    public TableView<RiwayatKasirModel> RiwayatTab;
+    public TableColumn<RiwayatKasirModel,Integer>  noRiwayatTab;
+    public TableColumn<RiwayatKasirModel,Integer>  IDRiwayatTab;
+    public TableColumn<RiwayatKasirModel,String>  NamaRiwayatTab;
+    public TableColumn<RiwayatKasirModel,String>  JabatanRiwayatTab;
+    public TableColumn<RiwayatKasirModel,String>  TglRiwayatTab;
+    public TableColumn<RiwayatKasirModel,String>  PendapatanRiwayatTab;
+    public GridPane RiwayatKas;
+    public GridPane MainKas;
 
     public int getIdTransaki() {
         return idTransaki;
@@ -64,7 +76,10 @@ public class KasirController implements Initializable {
     public Button tambahBarang;
     public Button editJumlah;
     public Button hapusBarang;
+    //endregion
+
     ObservableList<TableModel> data = FXCollections.observableArrayList();
+    ObservableList<RiwayatKasirModel> datark = FXCollections.observableArrayList();
     private LoginScreen main;
     public int hargaTotal = 0;
 
@@ -84,6 +99,7 @@ public class KasirController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Koneksi();
+        //table kasir
         colNo.setCellValueFactory(new PropertyValueFactory<>("no"));
         colKode.setCellValueFactory(new PropertyValueFactory<>("kode"));
         colBarang.setCellValueFactory(new PropertyValueFactory<>("namaBarang"));
@@ -92,9 +108,18 @@ public class KasirController implements Initializable {
         colSatuan.setCellValueFactory(new PropertyValueFactory<>("satuan"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
         table.setItems(data);
+        //table riwayat transaksi
+        noRiwayatTab.setCellValueFactory(new PropertyValueFactory<>("no"));
+        IDRiwayatTab.setCellValueFactory(new PropertyValueFactory<>("idrk"));
+        NamaRiwayatTab.setCellValueFactory(new PropertyValueFactory<>("namarpegawai"));
+        JabatanRiwayatTab.setCellValueFactory(new PropertyValueFactory<>("jabatanr"));
+        TglRiwayatTab.setCellValueFactory(new PropertyValueFactory<>("tglr"));
+        PendapatanRiwayatTab.setCellValueFactory(new PropertyValueFactory<>("pdptn"));
+
         NumberFormat nf = NumberFormat.getInstance(new Locale("en", "US"));
         String val = nf.format(hargaTotal);
         hargaLabel.setText("Rp."+val);
+        MainKas.toFront();
     }
 
     public void setLabel() {
@@ -160,6 +185,32 @@ public class KasirController implements Initializable {
         kembalian.setText("Rp. "+val2);
     }
 
+    public void updateRiwayatTable(){
+        NumberFormat nf = NumberFormat.getInstance(new Locale("en", "US"));
+        RiwayatTab.getItems().clear();
+        RiwayatTab.refresh();
+        i = 0;
+        try {
+            Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
+            String sql = "select *, sum(d.jumlah*d.harga) as total " +
+                    "from detail as d " +
+                    "inner join transaksi as t on d.id_transaksi=t.id_transaksi " +
+                    "inner join pegawai as p on t.id_pegawai=p.id_pegawai " +
+                    "inner join jabatan as j on p.id_jabatan=j.id_jabatan " +
+                    "group by t.id_transaksi;";
+            ResultSet res = stat.executeQuery(sql);
+            while (res.next()) {
+                datark.add(new RiwayatKasirModel(i,res.getInt("d.id_transaksi"),
+                        res.getString("p.nama_pegawai"),res.getString("j.nama_jabatan"),
+                        res.getString("tgl_transaksi"),nf.format(res.getInt("total"))));
+            }
+            RiwayatTab.setItems(datark);
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
     public void tambahBarangAction(ActionEvent actionEvent) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -220,9 +271,32 @@ public class KasirController implements Initializable {
     }
 
     public void KasirButtonPressed(ActionEvent actionEvent) {
+        MainKas.toFront();
+        KasirButton.getStyleClass().clear();
+        KasirButton.getStyleClass().add("GudangButtonColorSelected");
+        KasirBLogo.getStyleClass().clear();
+        KasirBLogo.setStyleClass("GudangButtonLogoSelected");
+
+        //RiwayatButton
+        RiwayatKasirButton.getStyleClass().clear();
+        RiwayatKasirButton.getStyleClass().add("GudangButtonColor");
+        RiwayatKasirBLogo.getStyleClass().clear();
+        RiwayatKasirBLogo.setStyleClass("GudangButtonLogo");
     }
 
     public void RiwayatButtonPressed(ActionEvent actionEvent) {
+        RiwayatKas.toFront();
+        updateRiwayatTable();
+        KasirButton.getStyleClass().clear();
+        KasirButton.getStyleClass().add("GudangButtonColor");
+        KasirBLogo.getStyleClass().clear();
+        KasirBLogo.setStyleClass("GudangButtonLogo");
+
+        //ManagerButton
+        RiwayatKasirButton.getStyleClass().clear();
+        RiwayatKasirButton.getStyleClass().add("GudangButtonColorSelected");
+        RiwayatKasirBLogo.getStyleClass().clear();
+        RiwayatKasirBLogo.setStyleClass("GudangButtonLogoSelected");
     }
 
     public void CheckOutAction(ActionEvent actionEvent) {

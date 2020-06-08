@@ -834,7 +834,7 @@
                                     <Insets left="10.0" />
                                  </padding>
                               </Label>
-                              <Button fx:id="TagihanButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="146.0" styleClass="TagihanButton" stylesheets="@MainScreen.css" text="Bayar Tagihan">
+                              <Button fx:id="TagihanButton" onAction="#TagihanButtonPressed" mnemonicParsing="false" prefHeight="30.0" prefWidth="146.0" styleClass="TagihanButton" stylesheets="@MainScreen.css" text="Bayar Tagihan">
                                  <VBox.margin>
                                     <Insets left="10.0" top="15.0" />
                                  </VBox.margin>

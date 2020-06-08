@@ -3,9 +3,8 @@
     <output-path>$PROJECT_DIR$/out/artifacts/TugasKasir1_jar</output-path>
     <root id="archive" name="TugasKasir1.jar">
       <element id="module-output" name="TugasKasir1" />
-      <element id="extracted-dir" path="/usr/share/java/mariadb-jdbc/mariadb-java-client-2.6.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="/usr/share/java/fontawesomefx-8.9.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="/usr/share/java/mariadb-jdbc/mariadb-java-client.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="/usr/share/java/mariadb-java-client-2.6.0.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

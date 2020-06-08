@@ -1,17 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="192.0" prefWidth="227.0" xmlns="http://javafx.com/javafx/8.0.202-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Tagihan">
+<AnchorPane prefHeight="157.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Tagihan">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="192.0" prefWidth="442.0">
+      <VBox alignment="TOP_CENTER" prefHeight="157.0" prefWidth="442.0" styleClass="kasirColor" stylesheets="@MainScreen.css">
          <children>
-            <Label text="Label" />
+            <Label styleClass="totalItem" text="Tagihan" />
+            <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="442.0">
+               <children>
+                  <Label styleClass="textFont" text="Jenis Tagihan" />
+                  <ComboBox fx:id="tagihanCombo" prefHeight="29.0" prefWidth="298.0">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="45.0" prefHeight="37.0" prefWidth="442.0">
+               <children>
+                  <Label prefHeight="24.0" prefWidth="131.0" styleClass="textFont" text="Biaya">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="BiayaInput" prefHeight="29.0" prefWidth="308.0" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="45.0" prefWidth="442.0">
+               <children>
+                  <Button fx:id="BayarButton" mnemonicParsing="false" onAction="#BayarButtonPressed" prefHeight="29.0" prefWidth="102.0" styleClass="whiteButton" text="Bayar" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
          </children>
       </VBox>
    </children>

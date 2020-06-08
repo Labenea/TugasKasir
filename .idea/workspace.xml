@@ -25,41 +25,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TugasKasir1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TugasKasir1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Connection/Koneksi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hashing/Md5Hasing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/JabatanModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/PegawaiModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Tagihan.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sample/Tagihan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JavaFXApp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/JavaFXApp.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/JenisCombo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/RiwayatKasirModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TugasKasir1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TugasKasir1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TugasKasir1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TugasKasir1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/META-INF/TugasKasir1.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/PengeluaranModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/Model/PengeluaranModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Gudang.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Gudang.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/GudangController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/GudangController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Kasir.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Kasir.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/KasirController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/KasirController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/LoginScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/LoginScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreen.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Manager.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/TambahBarang.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TugasKasir1/sample/TambahBarang.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/PengeluaranModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/PengeluaranModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Gudang.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Gudang.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/GudangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GudangController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/JavaFXApp/JavaFXApp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/JavaFXApp/JavaFXApp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/JavaFXApp/JavaFXApp.jnlp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TugasKasir1/TugasKasir1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TugasKasir1/TugasKasir1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TugasKasir1/TugasKasir1.jnlp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TugasKasir1_jar/TugasKasir1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.attach_pid13178" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/artifacts/JavaFXApp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/artifacts/TugasKasir1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/artifacts/TugasKasir1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/libraries/mariadb_java_client.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Connection/Koneksi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Hashing/Md5Hasing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/JabatanModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/PegawaiModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/PemasukanModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/PengeluaranModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/RiwayatModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/StockModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/TableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/TambahModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/Model/TypeModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/TugasKasir1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Gudang.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/GudangController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Karyawan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Kasir.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/KasirController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/LoginScreen.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreen.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/MainScreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Manager.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/ManagerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Tagihan.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Tagihan.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/TambahBarang.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/TambahBarang.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/Users.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/pictures/icons8-pos-terminal-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/pictures/icons8-pos-terminal-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/pictures/icons8-user-male.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/sample/pictures/icons8-user-male.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/Gudang.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/Kasir.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/MainScreen.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/MainScreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/Manager.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/Tagihan.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/TambahBarang.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/pictures/icons8-pos-terminal-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/pictures/icons8-pos-terminal-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/pictures/icons8-user-male.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TugasKasir1/src/sample/pictures/icons8-user-male.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Kasir.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Kasir.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/KasirController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/KasirController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/LoginScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/LoginScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/MainScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MainScreen.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Manager.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/TambahBarang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/TambahBarang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Tagihan.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Tagihan.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Tagihan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Tagihan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,13 +194,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/javafx_scenebuilder-2_0-linux-x64/JavaFXSceneBuilder2.0/JavaFXSceneBuilder2.0" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="settings.editor.selected.configurable" value="android.dex.compiler" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -198,7 +242,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="TugasKasir1" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Model.*" />
@@ -327,22 +370,25 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="167" y="22" key="#Project_Structure/0.22.1366.746@0.22.1366.746" timestamp="1589201691337" />
-    <state x="142" y="50" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591285619224">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state x="142" y="47" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591637896496">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state x="142" y="47" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.19.1366.749@0.19.1366.749" timestamp="1591637896496" />
     <state x="142" y="50" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.22.1366.746@0.22.1366.746" timestamp="1591285619224" />
     <state x="273" y="85" width="810" height="623" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1585467985713">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="273" y="85" width="810" height="623" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.28.1366.740@0.28.1366.740" timestamp="1585467985713" />
-    <state x="491" y="102" width="382" height="631" key="#com.intellij.ide.util.MemberChooser" timestamp="1591282936123">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state x="491" y="99" width="374" height="635" key="#com.intellij.ide.util.MemberChooser" timestamp="1591646064932">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state x="491" y="99" width="374" height="635" key="#com.intellij.ide.util.MemberChooser/0.19.1366.749@0.19.1366.749" timestamp="1591646064932" />
     <state x="491" y="102" width="382" height="631" key="#com.intellij.ide.util.MemberChooser/0.22.1366.746@0.22.1366.746" timestamp="1591282936123" />
     <state x="491" y="107" width="374" height="579" key="#com.intellij.ide.util.MemberChooser/0.28.1366.740@0.28.1366.740" timestamp="1588074472474" />
-    <state x="413" y="185" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1591291082084">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state x="413" y="183" width="525" height="424" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1591641823084">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state x="413" y="183" width="525" height="424" key="#com.intellij.ide.util.TreeClassChooserDialog/0.19.1366.749@0.19.1366.749" timestamp="1591641823084" />
     <state x="413" y="185" key="#com.intellij.ide.util.TreeClassChooserDialog/0.22.1366.746@0.22.1366.746" timestamp="1591291082084" />
     <state x="514" y="130" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1589201162260">
       <screen x="0" y="22" width="1366" height="746" />
@@ -352,14 +398,19 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="417" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.22.1366.746@0.22.1366.746" timestamp="1591019039720" />
-    <state x="414" y="150" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1591290505587">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state x="414" y="148" width="524" height="493" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1591626668123">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state x="414" y="148" width="524" height="493" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.19.1366.749@0.19.1366.749" timestamp="1591626668123" />
     <state x="414" y="150" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.22.1366.746@0.22.1366.746" timestamp="1591290505587" />
     <state x="390" y="22" key="#mariadb-java-client-2.6.0.jar" timestamp="1589201676643">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="390" y="22" key="#mariadb-java-client-2.6.0.jar/0.22.1366.746@0.22.1366.746" timestamp="1589201676643" />
+    <state x="389" y="19" width="578" height="749" key="#mariadb-java-client-2.6.0.jar_(1)" timestamp="1591626716615">
+      <screen x="0" y="19" width="1366" height="749" />
+    </state>
+    <state x="389" y="19" width="578" height="749" key="#mariadb-java-client-2.6.0.jar_(1)/0.19.1366.749@0.19.1366.749" timestamp="1591626716615" />
     <state x="432" y="286" width="502" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1589359340408">
       <screen x="0" y="22" width="1366" height="746" />
     </state>
@@ -376,33 +427,39 @@
       <screen x="0" y="22" width="1366" height="746" />
     </state>
     <state x="216" y="53" width="932" height="689" key="DBNavigator.ProjectSettingsDialog/0.22.1366.746@0.22.1366.746" timestamp="1589205044547" />
-    <state x="379" y="160" width="618" height="489" key="FileChooserDialogImpl" timestamp="1591290531298">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state x="379" y="158" width="610" height="521" key="FileChooserDialogImpl" timestamp="1591641352523">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state x="379" y="158" width="610" height="521" key="FileChooserDialogImpl/0.19.1366.749@0.19.1366.749" timestamp="1591641352523" />
     <state x="379" y="160" width="618" height="489" key="FileChooserDialogImpl/0.22.1366.746@0.22.1366.746" timestamp="1591290531298" />
-    <state width="1320" height="169" key="GridCell.Tab.0.bottom" timestamp="1591512338407">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state width="1320" height="160" key="GridCell.Tab.0.bottom" timestamp="1591646587873">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state width="1320" height="160" key="GridCell.Tab.0.bottom/0.19.1366.749@0.19.1366.749" timestamp="1591646587873" />
     <state width="1320" height="169" key="GridCell.Tab.0.bottom/0.22.1366.746@0.22.1366.746" timestamp="1591512338407" />
     <state width="1316" height="173" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1587054242688" />
-    <state width="1320" height="169" key="GridCell.Tab.0.center" timestamp="1591512338406">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state width="1320" height="160" key="GridCell.Tab.0.center" timestamp="1591646587872">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state width="1320" height="160" key="GridCell.Tab.0.center/0.19.1366.749@0.19.1366.749" timestamp="1591646587872" />
     <state width="1320" height="169" key="GridCell.Tab.0.center/0.22.1366.746@0.22.1366.746" timestamp="1591512338406" />
     <state width="1316" height="173" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1587054242688" />
-    <state width="1320" height="169" key="GridCell.Tab.0.left" timestamp="1591512338405">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state width="1320" height="160" key="GridCell.Tab.0.left" timestamp="1591646587872">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state width="1320" height="160" key="GridCell.Tab.0.left/0.19.1366.749@0.19.1366.749" timestamp="1591646587872" />
     <state width="1320" height="169" key="GridCell.Tab.0.left/0.22.1366.746@0.22.1366.746" timestamp="1591512338405" />
     <state width="1316" height="173" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1587054242687" />
-    <state width="1320" height="169" key="GridCell.Tab.0.right" timestamp="1591512338406">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state width="1320" height="160" key="GridCell.Tab.0.right" timestamp="1591646587873">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state width="1320" height="160" key="GridCell.Tab.0.right/0.19.1366.749@0.19.1366.749" timestamp="1591646587873" />
     <state width="1320" height="169" key="GridCell.Tab.0.right/0.22.1366.746@0.22.1366.746" timestamp="1591512338406" />
     <state width="1316" height="173" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1587054242688" />
-    <state x="164" y="22" width="1032" height="746" key="SettingsEditor" timestamp="1591291100126">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state x="252" y="19" width="1024" height="749" key="SettingsEditor" timestamp="1591643112719">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state x="252" y="19" width="1024" height="749" key="SettingsEditor/0.19.1366.749@0.19.1366.749" timestamp="1591643112719" />
     <state x="164" y="22" width="1032" height="746" key="SettingsEditor/0.22.1366.746@0.22.1366.746" timestamp="1591291100126" />
     <state x="164" y="33" key="SettingsEditor/0.28.1366.740@0.28.1366.740" timestamp="1585468053274" />
     <state x="553" y="434" key="classpath-attribute-editor" timestamp="1591290890711">
@@ -422,9 +479,10 @@
     </state>
     <state x="119" y="95" key="new project wizard/0.22.1366.746@0.22.1366.746" timestamp="1589204831505" />
     <state x="302" y="100" width="752" height="594" key="new project wizard/0.28.1366.740@0.28.1366.740" timestamp="1585663522168" />
-    <state x="428" y="22" width="415" height="487" key="refactoring.ChangeSignatureDialog" timestamp="1591204589910">
-      <screen x="0" y="22" width="1366" height="746" />
+    <state x="428" y="19" width="577" height="491" key="refactoring.ChangeSignatureDialog" timestamp="1591645697195">
+      <screen x="0" y="19" width="1366" height="749" />
     </state>
+    <state x="428" y="19" width="577" height="491" key="refactoring.ChangeSignatureDialog/0.19.1366.749@0.19.1366.749" timestamp="1591645697195" />
     <state x="428" y="22" width="415" height="487" key="refactoring.ChangeSignatureDialog/0.22.1366.746@0.22.1366.746" timestamp="1591204589910" />
     <state x="428" y="28" width="500" height="738" key="refactoring.ChangeSignatureDialog/0.28.1366.740@0.28.1366.740" timestamp="1588075795329" />
     <state x="347" y="174" key="run.anything.popup" timestamp="1589294084076">

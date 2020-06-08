@@ -117,6 +117,7 @@ public class ManagerController implements Initializable {
     public int JumlahStockSelected;
     public int pengeluaran;
     public Button MLogoutButton;
+    public Button TagihanButton;
 
     //endregion
 
@@ -805,5 +806,28 @@ public class ManagerController implements Initializable {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void TagihanButtonPressed(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("Tagihan.fxml"));
+            Scene scene = null;
+            scene = new Scene(fxmlLoader.load(),442,157);
+            Stage stage = new Stage();
+
+            Tagihan tagihan = fxmlLoader.getController();
+            tagihan.setIdPegawai(pegawai);
+
+            stage.setTitle("Tagihan");
+            stage.setScene(scene);
+            stage.showAndWait();
+            updatePengeluaranTable();
+            updateManagerPane();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
