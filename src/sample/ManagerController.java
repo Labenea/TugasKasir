@@ -821,6 +821,7 @@ public class ManagerController implements Initializable {
 
             stage.setTitle("Tagihan");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.showAndWait();
             updatePengeluaranTable();
             updateManagerPane();

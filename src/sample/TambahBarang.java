@@ -33,6 +33,8 @@ public class TambahBarang implements Initializable {
     public TableView<TambahModel> tableTambah;
     public int idBarang;
     public int IdTransaksi;
+    public int StockBarang;
+    public TableColumn<TambahModel,Integer> colStock;
 
     ObservableList<TambahModel> data = FXCollections.observableArrayList();
 
@@ -51,18 +53,18 @@ public class TambahBarang implements Initializable {
         tableTambah.refresh();
         try {
             Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
-            String sql = "select * " +
-                    "from barang as b " +
+
+            String sql = "select * from barang as b " +
                     "inner join type as t on b.id_type=t.id_type " +
-                    "inner join gudang as g on b.id_barang=g.id_barang "+
-                    "WHERE b.nama_barang LIKE '%"
-                    + searchBarang.getText() + "%';";
+                    "inner join gudang as g on b.id_barang=g.id_barang " +
+                    "where b.nama_barang like'%"+ searchBarang.getText() + "%'"+
+                    "order by g.id_barang asc";
             ResultSet res = stat.executeQuery(sql);
             int i = 0;
             while (res.next()) {
                 i++;
-                data.add(new TambahModel(i, res.getString("b.id_barang"), res.getString("barang.nama_barang"),
-                        res.getString("type.nama_type"), res.getInt("barang.harga_jual")));
+                data.add(new TambahModel(i, res.getString("b.id_barang"), res.getString("b.nama_barang"),
+                        res.getString("t.nama_type"),res.getInt("g.stock"), res.getInt("b.harga_jual")));
             }
 
         } catch (SQLException throwables) {
@@ -74,7 +76,7 @@ public class TambahBarang implements Initializable {
         colHarga.setCellValueFactory(new PropertyValueFactory<>("Harga"));
         colNama.setCellValueFactory(new PropertyValueFactory<>("Nama"));
         colSatuan.setCellValueFactory(new PropertyValueFactory<>("Satuan"));
-
+        colStock.setCellValueFactory(new PropertyValueFactory<>("Stock"));
         tableTambah.setItems(data);
     }
 
@@ -83,36 +85,46 @@ public class TambahBarang implements Initializable {
     }
 
     public void tambahButtonAction(ActionEvent actionEvent) {
-        try {
-            Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
-            String sql = "select * from detail where id_barang = "
-                    + idBarang + " and id_transaksi = "
-                    + IdTransaksi + ";";
-            ResultSet res = stat.executeQuery(sql);
-            PreparedStatement pst;
-            if (res.next()) {
-                int jumlah = res.getInt("jumlah");
-                jumlah = jumlah + Integer.parseInt(jumlahInput.getText());
-                sql = "update detail set jumlah = "
-                        + jumlah + " where id_barang = "
+        if(Integer.parseInt(jumlahInput.getText()) > StockBarang )
+        {
+            Alert Gagal = new Alert(Alert.AlertType.INFORMATION);
+            Gagal.setTitle("Stock Barang");
+            Gagal.setHeaderText(null);
+            Gagal.setContentText("Stock Barang tidak mencukupi");
+
+            Gagal.showAndWait();
+        }else {
+            try {
+                Statement stat = Objects.requireNonNull(Koneksi()).createStatement();
+                String sql = "select * from detail where id_barang = "
                         + idBarang + " and id_transaksi = "
                         + IdTransaksi + ";";
-                pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
-                pst.execute();
-            } else {
-                sql = "insert into detail value(null,"
-                        + IdTransaksi + ","
-                        + idBarang + ","
-                        + Integer.parseInt(jumlahInput.getText()) +","+
-                        HargaBarang +")";
-                pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
-                pst.execute();
-            }
-            Stage thisState = (Stage) tambahButton.getScene().getWindow();
-            thisState.close();
+                ResultSet res = stat.executeQuery(sql);
+                PreparedStatement pst;
+                if (res.next()) {
+                    int jumlah = res.getInt("jumlah");
+                    jumlah = jumlah + Integer.parseInt(jumlahInput.getText());
+                    sql = "update detail set jumlah = "
+                            + jumlah + " where id_barang = "
+                            + idBarang + " and id_transaksi = "
+                            + IdTransaksi + ";";
+                    pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
+                    pst.execute();
+                } else {
+                    sql = "insert into detail value(null,"
+                            + IdTransaksi + ","
+                            + idBarang + ","
+                            + Integer.parseInt(jumlahInput.getText()) + "," +
+                            HargaBarang + ")";
+                    pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
+                    pst.execute();
+                }
+                Stage thisState = (Stage) tambahButton.getScene().getWindow();
+                thisState.close();
 
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
     }
 
@@ -122,6 +134,7 @@ public class TambahBarang implements Initializable {
         jumlahInput.setText("1");
         namaBarang.setText(selecteditem.getNama());
         HargaBarang = selecteditem.getHarga();
+        StockBarang = selecteditem.getStock();
         System.out.println(idBarang);
 
         jumlahInput.requestFocus();

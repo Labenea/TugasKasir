@@ -5,6 +5,16 @@ public class TambahModel {
     public String Kode;
     public String Nama;
     public String Satuan;
+    public Integer Stock;
+
+    public Integer getStock() {
+        return Stock;
+    }
+
+    public void setStock(Integer stock) {
+        Stock = stock;
+    }
+
     public Integer Harga;
 
     public Integer getNo() {
@@ -47,11 +57,12 @@ public class TambahModel {
         Harga = harga;
     }
 
-    public TambahModel(Integer no, String kode, String nama, String satuan, Integer harga) {
+    public TambahModel(Integer no, String kode, String nama, String satuan,Integer stock, Integer harga) {
         No = no;
         Kode = kode;
         Nama = nama;
         Satuan = satuan;
         Harga = harga;
+        Stock = stock;
     }
 }

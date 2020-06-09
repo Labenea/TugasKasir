@@ -103,7 +103,7 @@ public class LoginScreen implements Initializable  {
                         primaryStage.setTitle("Kasir");
                         primaryStage.setScene(new Scene(root, 600, 400));
                         primaryStage.setMaximized(true);
-                        primaryStage.setResizable(false);
+
                         primaryStage.show();
                     }else if(jabatan == 2){
                         Stage thisState = (Stage) loginButton.getScene().getWindow();
@@ -121,7 +121,7 @@ public class LoginScreen implements Initializable  {
                         primaryStage.setTitle("Gudang");
                         primaryStage.setScene(new Scene(root, 600, 400));
                         primaryStage.setMaximized(true);
-                        primaryStage.setResizable(false);
+
                         primaryStage.show();
                     }else if(jabatan == 3){
                         Stage thisState = (Stage) loginButton.getScene().getWindow();
@@ -139,7 +139,7 @@ public class LoginScreen implements Initializable  {
                         primaryStage.setTitle("Manager");
                         primaryStage.setScene(new Scene(root, 600, 400));
                         primaryStage.setMaximized(true);
-                        primaryStage.setResizable(false);
+
                         primaryStage.show();
                     }
 

@@ -215,7 +215,7 @@ public class KasirController implements Initializable {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("TambahBarang.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(),600,400);
+            Scene scene = new Scene(fxmlLoader.load(),658,400);
             Stage stage = new Stage();
 
             TambahBarang tambahBarang1 = fxmlLoader.getController();
@@ -223,6 +223,7 @@ public class KasirController implements Initializable {
 
             stage.setTitle("Tambah Barang");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.showAndWait();
             updateTable();
             int tab = table.getItems().size();
@@ -245,11 +246,6 @@ public class KasirController implements Initializable {
                     + idTransaki + ";";
             PreparedStatement pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
             pst.execute();
-            sql = "insert into transaksi value(null,"
-                    + Pegawai + ",now());";
-            pst = Objects.requireNonNull(Koneksi()).prepareStatement(sql);
-            pst.execute();
-
             updateTable();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -267,6 +263,7 @@ public class KasirController implements Initializable {
     public void selectTable(MouseEvent mouseEvent) {
         TableModel selecteditem = table.getSelectionModel().getSelectedItems().get(0);
         TableSelectedId = Integer.parseInt(selecteditem.getKode());
+        System.out.println(TableSelectedId);
         namaBarang.setText(selecteditem.getNamaBarang());
     }
 
